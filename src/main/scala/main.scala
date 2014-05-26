@@ -1,16 +1,16 @@
 object main {
   def main(args: Array[String]) = {
-    val coords =  Array(Array(false,true,false),
-        Array(false,true,false),
-        Array(false,true,false))
-      val board: Board = new Board(coords)
+    val coords =  Vector(Vector(false,true,false),
+        Vector(false,true,false),
+        Vector(false,true,false))
+      val board = new Board(coords)
       println(board)
       println("----------------------")
       println(board.iterate)
   }
 }
 
-class Board(coords: Array[Array[Boolean]]) {
+class Board(coords: Vector[Vector[Boolean]]) {
   // Plz make sure your board is x*x in length. Shit will go crazy otherwise.
   def iterate(): Board = {
     new Board(
@@ -19,8 +19,8 @@ class Board(coords: Array[Array[Boolean]]) {
          }	yield {
          (for {
           x <- (0 to coords.length-1)
-          } yield countNeighbours(x,y) >= 3).toArray
-         }).toArray
+          } yield countNeighbours(x,y) >= 3).toVector
+         }).toVector
         )
   }
 
