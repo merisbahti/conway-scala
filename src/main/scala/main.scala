@@ -27,8 +27,8 @@ class Board(coords: Vector[Vector[Boolean]]) {
   def countNeighbours(x:Int,y:Int): Int = {
     (for 
      { 
-     a <- (-1 to 1).toList // all combos
-     b <- (-1 to 1).toList
+     a <- (-1 to 1)// all combos
+     b <- (-1 to 1)
      if x+a >= 0 && y+b >= 0 && // Check so that x+a and y+b aren't out of reach
      y+b < coords.length && x+a < coords.length  
      } yield coords(y+b)(x+a)).
