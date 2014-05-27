@@ -13,15 +13,13 @@ object main {
 class Board(coords: Vector[Vector[Boolean]]) {
   // Plz make sure your board is x*x in length. Shit will go crazy otherwise.
   def iterate(): Board = {
-    new Board(
-        (for {
-         y <- (0 to coords.length-1)
+    new Board((for {
+           y <- (0 to coords.length-1)
          }	yield {
          (for {
-          x <- (0 to coords.length-1)
+            x <- (0 to coords.length-1)
           } yield countNeighbours(x,y) >= 3).toVector
-         }).toVector
-        )
+         }).toVector)
   }
 
   def countNeighbours(x:Int,y:Int): Int = {
